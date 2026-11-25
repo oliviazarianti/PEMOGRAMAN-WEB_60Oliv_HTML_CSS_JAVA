@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Ulasan - Bunila Resto</title>
+    <link rel="stylesheet" href="formulir%20oliv.css">
+    <script src="oliv.js" defer></script>
+    <script src="hasil.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1 id="judul">Bunila Resto</h1>
+        <p>Bunila Resto, Selera Semua Orang</p>
+    </header>
+
+    <nav>
+        <a href="halaman%20oliv.html">Beranda</a>
+        <a href="halaman menu ILA.html">Menu</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="ulasan.html">Ulasan</a>
+        <a href="formulir ILA.html">Pemesanan</a>
+        <a href="reservasi.html">Reservasi / Booking</a>
+    </nav>
+
+    <main>
+        <h2>Hasil Ulasan Anda</h2>
+        <p id="info-halaman"></p>
+
+        <div id="isi-hasil" class="item-ulasan">
+            <h3 id="hasil-nama"></h3>
+            <p class="meta-ulasan">
+                Menu: <span id="hasil-menu"></span> |
+                Kepuasan: <span id="hasil-kepuasan"></span> |
+                <span id="hasil-waktu"></span>
+            </p>
+            <p class="isi-ulasan" id="hasil-ulasan"></p>
+            <p class="meta-ulasan" id="hasil-panjang"></p>
+            <p class="pesan sukses" id="hasil-balasan"></p>
+        </div>
+
+        <p id="kosong" class="kosong" style="display:none">
+            Belum ada ulasan yang dikirim.
+        </p>
+
+        <p class="kembali"><a href="halaman%20oliv.html">&larr; Kembali ke Beranda</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bunila Resto</p>
+    </footer>
+
+</body>
+</html>
