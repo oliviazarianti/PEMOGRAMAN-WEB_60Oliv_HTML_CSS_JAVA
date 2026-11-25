@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0fff8;
+    color: #575092;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00ab03;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+nav {
+    background-color: #0e5c16;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a.aktif,
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== hero ===== */
+.hero {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero img {
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    color: #138b13;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ===== tentang ===== */
+.tentang {
+    background-color: white;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tentang h2 {
+    color: #138b17;
+    margin-bottom: 10px;
+}
+
+.tentang p {
+    text-align: justify;
+}
+
+/* ===== form ulasan ===== */
+.form-ulasan {
+    background-color: white;
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-ulasan h2 {
+    color: #138b13;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-ulasan > p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.pilihan {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pilihan input {
+    margin-right: 10px;
+}
+
+.pilihan label {
+    margin: 0;
+    font-weight: normal;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background-color: #00ab03;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #138b13;
+}
+
+form .tombol-reset {
+    background-color: #777;
+}
+
+/* ===== tambahan untuk hasil JavaScript ===== */
+.salah {
+    border: 2px solid red !important;
+}
+
+.pesan {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.pesan.error {
+    color: red;
+}
+
+footer {
+    background-color: #0e5c16;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 250px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}
