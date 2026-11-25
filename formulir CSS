@@ -1,0 +1,334 @@
+/* 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0fff8;
+    color: #575092;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00ab03;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: white;
+}
+
+main {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #138b13;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#jumlah-menu {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.daftar-menu,
+.form-pemesanan,
+.daftar-ulasan {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.menu {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu h3 {
+    color: #138b13;
+    margin-bottom: 8px;
+}
+
+.menu p {
+    margin-bottom: 12px;
+}
+
+.menu span {
+    font-weight: bold;
+    color: #138b13;
+}
+
+.form-pemesanan {
+    max-width: 600px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-pemesanan > p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.pilihan {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pilihan input {
+    margin-right: 10px;
+}
+
+.pilihan label {
+    margin: 0;
+    font-weight: normal;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background-color: #00ab03;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #138b13;
+}
+
+form .tombol-reset {
+    background-color: #777;
+}
+
+.pesan {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.pesan.sukses {
+    color: green;
+}
+
+.pesan.error {
+    color: red;
+}
+
+.item-ulasan {
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+}
+
+.item-ulasan h3 {
+    color: #138b13;
+}
+
+.meta-ulasan {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.isi-ulasan {
+    overflow-wrap: anywhere;
+}
+
+.kosong {
+    text-align: center;
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #285c0e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    .daftar-menu,
+    .form-pemesanan,
+    .daftar-ulasan {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+} */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0fff8;
+    color: #575092;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00ab03;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: white;
+}
+
+nav {
+    background-color: #0e5c16;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #138b13;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.item-ulasan {
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+}
+
+.item-ulasan h3 {
+    color: #138b13;
+}
+
+.meta-ulasan {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.isi-ulasan {
+    overflow-wrap: anywhere;
+    margin-bottom: 8px;
+}
+
+.pesan {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.pesan.sukses {
+    color: green;
+}
+
+.pesan.error {
+    color: red;
+}
+
+.kosong {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.kembali {
+    margin-top: 20px;
+}
+
+.kembali a {
+    color: #138b13;
+}
+
+footer {
+    background-color: #285c0e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+    }
+}
