@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Bunila Resto</title>
+    <link rel="stylesheet" href="halaman%20oliv.css">
+    <script src="oliv.js" defer></script>
+    <script src="hasil.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1 id="judul">Bunila Resto</h1>
+        <p>Bunila Resto, Selera Semua Orang</p>
+    </header>
+
+    <nav>
+        <a href="halaman%20oliv.html" class="aktif">Beranda</a>
+        <a href="halaman menu ILA.html">Menu</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="ulasan.html">Ulasan</a>
+        <a href="formulir ILA.html">Pemesanan</a>
+        <a href="reservasi.html">Reservasi / Booking</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <img src="Kulineran-Taliwang-11.jpg" alt="Bunila Resto">
+
+            <div>
+                <h2>Selamat Datang di Bunila Resto</h2>
+
+                <p id="deskripsi">
+                    Nikmati berbagai makanan dan minuman khas
+                    lombok dengan cita rasa yang lezat dan
+                    harga yang terjangkau.
+                </p>
+
+                <p id="info-halaman"></p>
+
+                <p>
+                    Kami menyediakan makanan yang cocok untuk
+                    keluarga, teman, maupun acara bersama.
+                </p>
+            </div>
+        </section>
+
+        <section class="tentang">
+            <h2>Tentang Restoran</h2>
+            <p>
+                Bunila Resto adalah restoran yang menyajikan
+                berbagai makanan khas Lombok. Kami menggunakan
+                bahan berkualitas dan mengutamakan rasa, serta
+                kenyamanan pelanggan.
+            </p>
+        </section>
+
+        <section class="form-ulasan" id="formulir">
+
+            <h2>Kirim Ulasan</h2>
+            <p>Bagikan pengalamanmu setelah menikmati menu Bunila Resto.</p>
+
+            <form id="formUlasan" novalidate>
+
+                <label for="nama">Nama Pelanggan</label>
+                <input type="text" id="nama" name="nama"
+                    placeholder="Masukkan nama lengkap" required>
+
+                <label for="menu">Menu yang Anda Pesan</label>
+                <input type="text" id="menu" name="menu"
+                    placeholder="Tulis nama menu, contoh: Nasi Goreng Spesial" required>
+
+                <label>Bagaimana Kepuasan Anda?</label>
+
+                <div class="pilihan">
+                    <input type="radio" id="puas" name="kepuasan" value="Puas">
+                    <label for="puas">Puas</label>
+                </div>
+
+                <div class="pilihan">
+                    <input type="radio" id="cukup" name="kepuasan" value="Cukup Puas">
+                    <label for="cukup">Cukup Puas</label>
+                </div>
+
+                <div class="pilihan">
+                    <input type="radio" id="tidak" name="kepuasan" value="Tidak Puas">
+                    <label for="tidak">Tidak Puas</label>
+                </div>
+
+                <label for="ulasan">Ulasan dan Saran</label>
+                <textarea id="ulasan" name="ulasan" rows="4"
+                    placeholder="Tuliskan pengalaman, saran, atau kritik Anda..."
+                    required></textarea>
+
+                <p id="pesan" class="pesan error"></p>
+
+                <button type="submit">Kirim Ulasan</button>
+                <button type="reset" class="tombol-reset">Reset</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bunila Resto</p>
+    </footer>
+
+</body>
+</html>
