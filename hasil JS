@@ -1,0 +1,163 @@
+// hasil.js : BAGIAN 2 - formulir ulasan & halaman hasil
+(function () {
+    "use strict";
+
+    const DEBUG = true;              // ganti false kalau debug sudah selesai
+    const PAUSE_SAAT_SUBMIT = false; // true = berhenti saat tombol Kirim ditekan
+    const PAUSE_DI_HASIL = false;    // true = berhenti di halaman hasil
+    const HALAMAN_HASIL = "formulir%20oliv.html";
+    const TAG = "[hasil.js]";
+
+    function log(...args) {
+        if (DEBUG) console.log(TAG, ...args);
+    }
+
+    window.addEventListener("error", function (e) {
+        console.error(TAG + " ERROR di " + e.filename + ":" + e.lineno + " -> " + e.message);
+    });
+
+    function ambil(id) {
+        const el = document.getElementById(id);
+        if (!el) console.warn(TAG + " Elemen id '" + id + "' TIDAK DITEMUKAN di HTML");
+        return el;
+    }
+
+    log("File berhasil dimuat. Halaman:", window.location.pathname);
+
+    // ===== A. FORMULIR ULASAN (halaman oliv.html) =====
+    const formUlasan = document.getElementById("formUlasan");
+
+    function tandaiSalah(id) {
+        const el = ambil(id);
+        if (el) el.classList.add("salah");
+    }
+
+    if (formUlasan) {
+        log("Formulir ditemukan, memasang listener submit");
+
+        formUlasan.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            try {
+                log("---- Tombol Kirim ditekan ----");
+                if (PAUSE_SAAT_SUBMIT) debugger;
+
+                const nama = ambil("nama").value.trim();
+                const menu = ambil("menu").value;
+                const pilihKepuasan = document.querySelector('input[name="kepuasan"]:checked');
+                const ulasan = ambil("ulasan").value.trim();
+                const pesan = ambil("pesan");
+
+                if (DEBUG) {
+                    console.table({
+                        nama: nama,
+                        menu: menu,
+                        kepuasan: pilihKepuasan ? pilihKepuasan.value : "(belum dipilih)",
+                        ulasan: ulasan,
+                        "panjang ulasan": ulasan.length
+                    });
+                }
+
+                const semuaSalah = formUlasan.querySelectorAll(".salah");
+                for (let i = 0; i < semuaSalah.length; i++) {
+                    semuaSalah[i].classList.remove("salah");
+                }
+
+                let error = "";
+
+                if (nama === "") {
+                    error = "Nama pelanggan wajib diisi.";
+                    tandaiSalah("nama");
+                }
+                if (menu === "") {
+                    if (error === "") error = "Menu yang dipesan wajib diisi.";
+                    tandaiSalah("menu");
+                }
+                if (pilihKepuasan === null) {
+                    if (error === "") error = "Silakan pilih tingkat kepuasan Anda.";
+                }
+                if (ulasan === "") {
+                    if (error === "") error = "Ulasan dan saran wajib diisi.";
+                    tandaiSalah("ulasan");
+                } else if (ulasan.length < 10) {
+                    if (error === "") error = "Ulasan minimal 10 karakter.";
+                    tandaiSalah("ulasan");
+                }
+
+                if (error !== "") {
+                    console.warn(TAG + " Validasi GAGAL:", error);
+                    pesan.textContent = error;
+                    return;
+                }
+
+                log("Validasi LOLOS");
+                pesan.textContent = "";
+
+                const data = new URLSearchParams({
+                    nama: nama,
+                    menu: menu,
+                    kepuasan: pilihKepuasan.value,
+                    ulasan: ulasan
+                });
+
+                const tujuan = HALAMAN_HASIL + "?" + data.toString();
+                log("Pindah ke:", tujuan);
+                window.location.href = tujuan;
+            } catch (err) {
+                console.error(TAG + " Error saat submit:", err);
+            }
+        });
+    }
+
+    // ===== B. HALAMAN HASIL (formulir oliv.html) =====
+    const hasilNama = document.getElementById("hasil-nama");
+
+    if (hasilNama) {
+        log("Halaman hasil terdeteksi");
+
+        try {
+            if (PAUSE_DI_HASIL) debugger;
+
+            const data = new URLSearchParams(window.location.search);
+
+            const nama = data.get("nama");
+            const menu = data.get("menu");
+            const kepuasan = data.get("kepuasan");
+            const ulasan = data.get("ulasan");
+
+            log("Query string:", window.location.search);
+            if (DEBUG) console.table({ nama: nama, menu: menu, kepuasan: kepuasan, ulasan: ulasan });
+
+            if (!nama || !ulasan) {
+                console.warn(TAG + " Data kosong: halaman dibuka tanpa mengisi formulir");
+                ambil("isi-hasil").style.display = "none";
+                ambil("kosong").style.display = "block";
+                return;
+            }
+
+            hasilNama.textContent = nama;
+            ambil("hasil-menu").textContent = menu;
+            ambil("hasil-kepuasan").textContent = kepuasan;
+            ambil("hasil-ulasan").textContent = ulasan;
+
+            const waktu = new Date().toLocaleString("id-ID", { dateStyle: "long", timeStyle: "short" });
+            ambil("hasil-waktu").textContent = waktu;
+            ambil("hasil-panjang").textContent = "Panjang ulasan: " + ulasan.length + " karakter";
+
+            let balasan = "";
+
+            if (kepuasan === "Puas") {
+                balasan = "Terima kasih, " + nama + "! Kami senang Anda puas dengan " + menu + ". Sampai jumpa lagi di Bunila Resto.";
+            } else if (kepuasan === "Cukup Puas") {
+                balasan = "Terima kasih, " + nama + ". Kami akan terus meningkatkan rasa dan pelayanan untuk " + menu + ".";
+            } else {
+                balasan = "Mohon maaf, " + nama + ". Masukan Anda tentang " + menu + " sangat berarti dan akan kami perbaiki.";
+            }
+
+            ambil("hasil-balasan").textContent = balasan;
+            log("Hasil selesai ditampilkan. Kategori:", kepuasan);
+        } catch (err) {
+            console.error(TAG + " Error saat menampilkan hasil:", err);
+        }
+    }
+})();
